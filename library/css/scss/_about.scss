@@ -1,0 +1,45 @@
+h2 {
+  margin: 20px 0;
+  color: #0C0C0E;
+  font: 40px/40px 'Forum';
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+hr {
+  width: 50px;
+  height: 1px;
+  margin: 0 auto;
+  border: none;
+  background-color: #0C0C0E;
+}
+
+.about__text {
+  margin: 40px 0 20px;
+  font: 400 20px/40px 'Inter';
+  text-align: center;
+}
+
+.slider {
+  display: grid;
+  grid-template-columns: repeat(3, calc(450/1400)*100%);
+  justify-content: space-between;
+  img {
+    width: 100%;
+  }
+}
+
+.pagination {
+  display: grid;
+  grid-template-columns: repeat(3, 26px);
+  justify-content: center;
+  gap: 10px;
+  margin: 40px 0;
+  span {
+    width:16px;
+    height: 16px;
+    border: 10px solid white;
+    border-radius: 50%;
+    background-color: #0C0C0E;
+  }
+}
