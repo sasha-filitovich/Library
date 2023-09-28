@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "Forum";
+  src: url("../assets/fonts/Forum-Regular.ttf");
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Inter-bold";
+  src: url("../assets/fonts/Inter-Bold.ttf");
+  font-weight: 700;
+}
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  width: 97.2222222222%;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 20px 0;
+  background-color: #0C0C0E;
+  color: #FFFFFF;
+}
+
+.header__wrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__nav-profile {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 30px;
+  margin: 0;
+  list-style: none;
+  font: 20px/50px "Inter";
+}
+
+h1 {
+  font: 30px/50px "Forum";
+  letter-spacing: 0.6px;
+  margin: 0;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,34 @@
+.header {
+  padding: 20px 0;
+  background-color: #0C0C0E;
+  color: #FFFFFF;
+}
+
+.header__wrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__nav-profile {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 30px;
+  margin: 0;
+  list-style: none;
+  font: 20px/50px 'Inter';
+}
+
+h1 {
+  font: 30px/50px 'Forum';
+  letter-spacing: 0.6px;
+  margin: 0;
+}
