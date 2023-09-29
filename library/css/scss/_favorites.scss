@@ -1,0 +1,71 @@
+.favorites__text {
+  margin: 40px 0;
+  font: 700 20px 'Inter';
+}
+
+.favorites__seasons {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  gap: 90px;
+  margin-bottom: 40px;
+  font: 400 20px 'Inter';
+}
+
+.favorites__book {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  justify-content: space-between;
+  row-gap: 40px;
+  margin-right: 40px;
+}
+
+.book {
+  position: relative;
+  width: 550px;
+  padding: 15px 20px;
+  border: 1px solid #000000;
+  h6 {
+    margin: 0;
+    font: 20px/40px 'Forum';
+    letter-spacing: 2px;
+  }
+
+  hr {
+    width: 60px;
+    height: 1px;
+    margin: 0;
+    background-color: #BB945F;
+  }
+
+  img {
+    position: absolute;
+    left: 390px;
+    top: 256px;
+  }
+}
+
+.book__title {
+  margin: 20px 0;
+  font: 700 15px/40px 'Inter';
+  letter-spacing: 2px;
+}
+
+.book__text {
+  width: 355px;
+  margin: 0 0 15px;
+  font: 400 15px/40px 'Inter';
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+button {
+  width: 75px;
+  height: 30px;
+  border: 1px solid #0C0C0E;
+  border-radius: 2px;
+  background-color: transparent;
+  font: 700 10px 'Inter';
+  letter-spacing: 1px;
+}

@@ -31,15 +31,16 @@ hr {
 
 .pagination {
   display: grid;
-  grid-template-columns: repeat(3, 26px);
+  grid-template-columns: repeat(3, 36px);
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
   margin: 40px 0;
   span {
-    width:16px;
-    height: 16px;
+    width: 36px;
+    height: 36px;
     border: 10px solid white;
     border-radius: 50%;
     background-color: #0C0C0E;
+    cursor: pointer;
   }
 }

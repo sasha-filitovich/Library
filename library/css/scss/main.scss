@@ -15,6 +15,10 @@
   font-weight: 700;
 }
 
+*{
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -35,3 +39,4 @@ body {
 @import 'welcome';
 @import 'about';
 @import 'favorites';
+@import 'shop';
