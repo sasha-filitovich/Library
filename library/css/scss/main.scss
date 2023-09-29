@@ -32,7 +32,7 @@ body {
 
 .wrapper {
   width: calc(1400px / 1440px) * 100%;
-  margin: 0 auto;
+  margin: 20px auto 40px auto;
 }
 
 @import 'header';
@@ -40,3 +40,5 @@ body {
 @import 'about';
 @import 'favorites';
 @import 'shop';
+@import 'contacts';
+@import 'library-cards'

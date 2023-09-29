@@ -29,7 +29,7 @@ body {
 
 .wrapper {
   width: 97.2222222222%;
-  margin: 0 auto;
+  margin: 20px auto 40px auto;
 }
 
 .header {
@@ -189,6 +189,7 @@ button {
 }
 
 .shop__text {
+  margin: 40px 0;
   font: 400 20px/40px "Inter";
   letter-spacing: 2px;
   text-align: center;
@@ -201,9 +202,101 @@ button {
 }
 
 h3 {
+  grid-column: span 3;
+  margin: 0;
   font: 40px "Forum";
   color: #BB945F;
   letter-spacing: 2px;
+}
+
+.menu__box {
+  display: grid;
+  grid-template: repeat(6, auto)/repeat(3, auto);
+  align-items: center;
+  gap: 40px 60px;
+}
+.menu__box hr {
+  width: 100px;
+  height: 1px;
+  background-color: #BB945F;
+}
+
+.food {
+  justify-items: end;
+}
+
+.menu__text {
+  margin: 0;
+  font: 20px/40px "Inter";
+  letter-spacing: 2px;
+}
+
+.menu__price {
+  margin: 0;
+  font: 20px/40px "Forum";
+  letter-spacing: 2px;
+}
+
+.contacts__box {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.contacts__title {
+  font: 700 20px/40px "Inter";
+  letter-spacing: 2px;
+}
+
+.contacts__text {
+  font: 400 20px/40px "Inter";
+  letter-spacing: 2px;
+}
+
+.cards__box {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  padding-top: 40px;
+}
+
+.cards__find {
+  border: 3px solid #BB945F;
+}
+.cards__find button {
+  width: 242px;
+  height: 44px;
+  font: 700 20px "Inter";
+}
+
+.cards__get {
+  max-width: 456px;
+}
+.cards__get p {
+  margin: 35px 0;
+  text-align: end;
+  font: 400 20px/40px "Inter";
+  letter-spacing: 0.4px;
+}
+
+h4 {
+  font: 400 30px "Inter";
+  letter-spacing: 0.6px;
+}
+
+h5 {
+  margin: 0;
+  text-align: end;
+  font: 30px "Forum";
+  letter-spacing: 0.6px;
+}
+
+.button__box {
+  text-align: end;
+}
+.button__box button {
+  margin-left: 20px;
 }
 
 /*# sourceMappingURL=main.css.map */

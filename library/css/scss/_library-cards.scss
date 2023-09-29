@@ -1,0 +1,44 @@
+.cards__box {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  padding-top: 40px;
+}
+
+.cards__find {
+  border: 3px solid #BB945F;
+  button {
+    width: 242px;
+    height: 44px;
+    font: 700 20px 'Inter';
+  }
+}
+
+.cards__get {
+  max-width: 456px;
+  p {
+    margin: 35px 0;
+    text-align: end;
+    font: 400 20px/40px 'Inter';
+    letter-spacing: 0.4px;
+  }
+}
+
+h4 {
+  font: 400 30px 'Inter';
+  letter-spacing: 0.6px;
+}
+
+h5 {
+  margin: 0;
+  text-align: end;
+  font: 30px 'Forum';
+  letter-spacing: 0.6px;
+}
+
+.button__box {
+  text-align: end;
+  button {
+    margin-left: 20px;
+  }
+}

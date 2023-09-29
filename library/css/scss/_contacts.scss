@@ -1,0 +1,16 @@
+.contacts__box {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.contacts__title {
+  font: 700 20px/40px 'Inter';
+  letter-spacing: 2px;
+}
+
+.contacts__text {
+  font: 400 20px/40px 'Inter';
+  letter-spacing: 2px;
+}

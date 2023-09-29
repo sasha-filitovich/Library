@@ -1,4 +1,5 @@
 .shop__text {
+  margin: 40px 0;
   font: 400 20px/40px 'Inter';
   letter-spacing: 2px;
   text-align: center;
@@ -11,7 +12,37 @@
 }
 
 h3 {
+  grid-column: span 3;
+  margin: 0;
   font: 40px 'Forum';
   color: #BB945F;
+  letter-spacing: 2px;
+}
+
+.menu__box {
+  display: grid;
+  grid-template: repeat(6, auto)/repeat(3, auto);
+  align-items: center;
+  gap: 40px 60px;
+  hr {
+    width: 100px;
+    height: 1px;
+    background-color: #BB945F;
+  }
+}
+
+.food {
+  justify-items: end;
+}
+
+.menu__text {
+  margin: 0;
+  font: 20px/40px 'Inter';
+  letter-spacing: 2px;
+}
+
+.menu__price {
+  margin: 0;
+  font: 20px/40px 'Forum';
   letter-spacing: 2px;
 }
