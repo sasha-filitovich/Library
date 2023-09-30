@@ -1,6 +1,6 @@
 .contacts__box {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   margin-top: 40px;
 }

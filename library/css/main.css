@@ -51,6 +51,9 @@ body {
   align-items: center;
   gap: 40px;
 }
+.header__nav-profile img {
+  cursor: pointer;
+}
 
 .nav {
   display: grid;
@@ -65,6 +68,15 @@ h1 {
   font: 30px/50px "Forum";
   letter-spacing: 0.6px;
   margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: color 0.5s;
+}
+a:hover {
+  color: #BB945F;
 }
 
 .welcome__img {
@@ -131,19 +143,41 @@ hr {
   margin-bottom: 40px;
   font: 400 20px "Inter";
 }
+@media (max-width: 650px) {
+  .favorites__seasons {
+    gap: 15px;
+  }
+}
 
 .favorites__book {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 40.4% 40.4%;
   grid-template-rows: auto auto;
   justify-content: space-between;
   row-gap: 40px;
   margin-right: 40px;
 }
+@media (max-width: 1340px) {
+  .favorites__book {
+    grid-template-columns: 47% 47%;
+  }
+}
+@media (max-width: 1024px) {
+  .favorites__book {
+    grid-template-columns: minmax(550px, 70%);
+    grid-template-rows: repeat(4, auto);
+    justify-content: center;
+  }
+}
+@media (max-width: 650px) {
+  .favorites__book {
+    grid-template-columns: 100%;
+  }
+}
 
 .book {
   position: relative;
-  width: 550px;
+  width: 100%;
   padding: 15px 20px;
   border: 1px solid #000000;
 }
@@ -160,8 +194,8 @@ hr {
 }
 .book img {
   position: absolute;
-  left: 390px;
-  top: 256px;
+  bottom: 0;
+  right: -40px;
 }
 
 .book__title {
@@ -171,7 +205,7 @@ hr {
 }
 
 .book__text {
-  width: 355px;
+  width: 64.5%;
   margin: 0 0 15px;
   font: 400 15px/40px "Inter";
   letter-spacing: 2px;
@@ -186,6 +220,12 @@ button {
   background-color: transparent;
   font: 700 10px "Inter";
   letter-spacing: 1px;
+  transition: border-color 0.5s, background-color 0.5s;
+  cursor: pointer;
+}
+button:hover {
+  border-color: #BB945F;
+  background-color: #BB945F;
 }
 
 .shop__text {
@@ -199,6 +239,11 @@ button {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
+}
+@media (max-width: 1024px) {
+  .menu {
+    display: block;
+  }
 }
 
 h3 {
@@ -220,9 +265,21 @@ h3 {
   height: 1px;
   background-color: #BB945F;
 }
+@media (max-width: 1024px) {
+  .menu__box {
+    width: 100%;
+    max-width: 470px;
+    margin-bottom: 40px;
+  }
+}
 
 .food {
   justify-items: end;
+}
+@media (max-width: 1024px) {
+  .food {
+    margin: 0 0 60px auto;
+  }
 }
 
 .menu__text {
@@ -239,7 +296,7 @@ h3 {
 
 .contacts__box {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   margin-top: 40px;
 }
@@ -258,7 +315,15 @@ h3 {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
+  align-items: center;
   padding-top: 40px;
+}
+@media (max-width: 1024px) {
+  .cards__box {
+    grid-template: auto auto/auto;
+    justify-content: center;
+    row-gap: 21px;
+  }
 }
 
 .cards__find {
@@ -302,6 +367,17 @@ h3 {
   font: 400 20px/40px "Inter";
   letter-spacing: 0.4px;
 }
+@media (max-width: 1024px) {
+  .cards__get p {
+    text-align: center;
+  }
+}
+@media (max-width: 1024px) {
+  .cards__get {
+    justify-self: center;
+    text-align: center;
+  }
+}
 
 h4 {
   margin: 0 0 30px 0;
@@ -316,12 +392,22 @@ h5 {
   font: 30px "Forum";
   letter-spacing: 0.6px;
 }
+@media (max-width: 1024px) {
+  h5 {
+    text-align: center;
+  }
+}
 
 .button__box {
   text-align: end;
 }
 .button__box button {
   margin-left: 20px;
+}
+@media (max-width: 1024px) {
+  .button__box {
+    text-align: center;
+  }
 }
 
 footer {
@@ -341,10 +427,23 @@ footer hr {
   display: grid;
   grid-template: auto auto/auto auto;
   justify-content: space-between;
+  row-gap: 10px;
+  margin-bottom: 30px;
 }
 .footer__library p {
+  margin: 0;
   color: #FFFFFF;
   font: 400 15px/20px "Inter";
+}
+
+.footer__links {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  column-gap: 10px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
 .footer__dev {
@@ -354,8 +453,12 @@ footer hr {
   align-items: center;
 }
 .footer__dev p, .footer__dev a {
+  margin: 44px 0 0;
   color: #FFFFFF;
   font: 400 20px "Inter";
+}
+.footer__dev a:hover {
+  color: #BB945F;
 }
 
 /*# sourceMappingURL=main.css.map */

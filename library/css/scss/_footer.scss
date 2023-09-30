@@ -15,10 +15,23 @@ footer {
   display: grid;
   grid-template: auto auto / auto auto;
   justify-content: space-between;
+  row-gap: 10px;
+  margin-bottom: 30px;
   p {
-  color: #FFFFFF;
-  font: 400 15px/20px 'Inter';
+    margin: 0;
+    color: #FFFFFF;
+    font: 400 15px/20px 'Inter';
   }
+}
+
+.footer__links {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  column-gap: 10px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
 .footer__dev {
@@ -27,7 +40,13 @@ footer {
   justify-content: space-between;
   align-items: center;
   p, a {
+    margin: 44px 0 0;
     color: #FFFFFF;
     font: 400 20px 'Inter';
+  }
+  a {
+    &:hover {
+      color: #BB945F;
+    }
   }
 }
