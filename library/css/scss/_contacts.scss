@@ -3,6 +3,10 @@
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   margin-top: 40px;
+  @media (max-width: 900px) {
+    grid-template: auto auto / 100%;
+    row-gap: 100px;
+  }
 }
 
 .contacts__title {
@@ -13,4 +17,11 @@
 .contacts__text {
   font: 400 20px/40px 'Inter';
   letter-spacing: 2px;
+}
+
+iframe {
+  @media (max-width: 900px) {
+    width: 96%;
+    justify-self: center;
+  }
 }

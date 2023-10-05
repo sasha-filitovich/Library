@@ -1,3 +1,21 @@
+// #about {
+//   position: relative;
+//   @media (max-width: 770px) {
+//     &::before {
+//       content: url(../assets/svg/carret_left.svg);
+//       position: absolute;
+//       top: 55%;
+//       left: 10%;
+//     }
+//     &::after {
+//       content: url(../assets/svg/carret_right.svg);
+//       position: absolute;
+//       top: 55%;
+//       right: 10%;
+//     }
+//   }
+// }
+
 h2 {
   margin: 20px 0;
   color: #0C0C0E;
@@ -20,12 +38,43 @@ hr {
   text-align: center;
 }
 
+.about__slider-arrows {
+  .arrow-left, .arrow-right {
+    display: none;
+  }
+  @media (max-width: 770px) {
+    width: 82.6%;
+    display: grid;
+    grid-template-columns: auto 74.9% auto;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    .arrow-left, .arrow-right {
+      display: block;
+      margin-top: -80px;
+    }
+  }
+}
+
+.about__slider {
+  width: 100%;
+  overflow: hidden;
+  input {
+    display: none;
+  }
+}
+
 .slider {
   display: grid;
-  grid-template-columns: repeat(3, calc(450/1400)*100%);
-  justify-content: space-between;
+  grid-template-columns: repeat(5, calc(450/1400)*100%);
+  column-gap: calc(25/1400)*100%;
   img {
     width: 100%;
+    transition: all 0.5s;
+  }
+  @media (max-width: 770px) {
+    position: relative;
+    grid-template-columns: repeat(5, 100%);
   }
 }
 
@@ -35,12 +84,64 @@ hr {
   justify-content: center;
   gap: 5px;
   margin: 40px 0;
-  span {
+  label {
     width: 36px;
     height: 36px;
     border: 10px solid white;
     border-radius: 50%;
     background-color: #0C0C0E;
     cursor: pointer;
+    transition: background-color 0.5s;
+    &:hover {
+      background-color: #BB945F;
+    }
+  }
+  @media (max-width: 770px) {
+    grid-template-columns: repeat(5, 36px);
+  }
+}
+
+.label4, .label5 {
+  display: none;
+  @media (max-width: 770px) {
+    display: block;
+  }
+}
+
+#img1:checked ~ .slider img {
+  margin-left: 0;
+}
+
+#img2:checked ~ .slider img {
+  margin-left: -105%;
+}
+
+#img3:checked ~ .slider img {
+  margin-left: -210%;
+}
+
+#img1:checked ~ .pagination .label1, 
+#img2:checked ~ .pagination .label2,
+#img3:checked ~ .pagination .label3,
+#img4:checked ~ .pagination .label4,
+#img5:checked ~ .pagination .label5 {
+  background-color: #BB945F;
+}
+
+@media (max-width: 770px) {
+  #img2:checked ~ .slider img {
+    margin-left: -102%;
+  }
+  
+  #img3:checked ~ .slider img {
+    margin-left: -204%;
+  }
+
+  #img4:checked ~ .slider img {
+    margin-left: -306%;
+  }
+  
+  #img5:checked ~ .slider img {
+    margin-left: -408%;
   }
 }

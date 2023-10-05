@@ -22,17 +22,23 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  &.lock {
+    overflow: hidden;
+  }
 }
 
 body {
   max-width: 1440px;
   margin: 0 auto;
   overflow-x: hidden;
+  &.lock {
+    overflow: hidden;
+  }
 }
 
 .wrapper {
   width: calc(1400px / 1440px) * 100%;
-  margin: 20px auto 40px auto;
+  margin: 0 auto;
 }
 
 @import 'header';

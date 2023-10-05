@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+  <div class="overlay"></div>
   <header class="header">
     <div class="wrapper header__wrapper">
       <h1>Brooklyn Public Library</h1>
       <div class="header__nav-profile">
-        <nav>
+        <nav class="header__nav">
           <ul class="nav">
             <li><a href="#about">About</a></li>
             <li><a href="#favorites">Favorites</a></li>
@@ -22,6 +23,7 @@
           </ul>
         </nav>
         <img src="assets/svg/icon_profile.svg" alt="Log icon">
+        <div class="burger"></div>
       </div>
     </div>
   </header>
@@ -34,15 +36,30 @@
         <h2>About</h2>
         <hr>
         <p class="about__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside </p>
-        <div class="slider">
-          <img src="assets/img/image1.png" alt="Woman in library">
-          <img src="assets/img/image2.png" alt="Statues">
-          <img src="assets/img/image3.png" alt="Shelves with books">
-        </div>
-        <div class="pagination">
-          <span></span>
-          <span></span>
-          <span></span>
+        <div class="about__slider-arrows">
+        <img class="arrow-left" src="assets/svg/carret_left.svg">
+        <div class="about__slider">
+          <input type="radio" name="img" id="img1" checked>
+          <input type="radio" name="img" id="img2">
+          <input type="radio" name="img" id="img3">
+          <input type="radio" name="img" id="img4">
+          <input type="radio" name="img" id="img5">
+          <div class="slider">
+            <img src="assets/img/image1.png" alt="Woman in library">
+            <img src="assets/img/image2.png" alt="Statues">
+            <img src="assets/img/image3.png" alt="Shelves with books">
+            <img src="assets/img/image4.png" alt="Statues">
+            <img src="assets/img/image5.png" alt="Shelves with books">
+          </div>
+          <div class="pagination">
+            <label class="label1" for="img1"></label>
+            <label class="label2" for="img2"></label>
+            <label class="label3" for="img3"></label>
+            <label class="label4" for="img4"></label>
+            <label class="label5" for="img5"></label>
+          </div>
+        </div> 
+        <img class="arrow-right" src="assets/svg/carret_right.svg">
         </div>
       </div>
     </section>
@@ -209,5 +226,6 @@
       </div>
     </div>
   </footer>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
