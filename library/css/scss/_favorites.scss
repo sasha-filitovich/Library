@@ -10,8 +10,38 @@
   gap: 90px;
   margin-bottom: 40px;
   font: 400 20px 'Inter';
+  input {
+    display: none;
+    & + .label__season::after {
+      content: "";
+      position: absolute;
+      visibility: hidden;
+      width: 7px;
+      height: 7px;
+      background-color: #000000;
+      border-radius: 50%;
+      left: 5px;
+      top: 7px;
+    }
+    &:checked + .label__season::after {
+      visibility: visible;
+    }
+  }
   @media (max-width: 650px) {
     gap: 15px;
+  }
+}
+
+.label__season {
+  position: relative;
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-right: 20px;
+    border: 2px solid black;
+    border-radius: 50%;
   }
 }
 
@@ -22,9 +52,6 @@
   justify-content: space-between;
   row-gap: 40px;
   margin-right: 40px;
-  input {
-    display: none;
-  }
 
   @media (max-width: 1340px) {
     grid-template-columns: 47% 47%;
@@ -104,36 +131,14 @@ button {
 
 .book.show {
   display: block;
-  animation: fade-in 5s 1;
+  animation: fade-in 1s 1;
   animation-fill-mode: forwards;
 }
 
 .book.hidden {
-  animation: fade-out 5s 1;
+  animation: fade-out 1s 1;
   animation-fill-mode: forwards;
 }
-
-// #winter:checked ~ .winter {
-//   animation: fade-in 5s 1;
-//   animation-fill-mode: forwards;
-//   animation-delay: 5s;
-// }
-
-// #winter:checked ~ .spring {
-//   animation: fade-out 5s 1;
-//   animation-fill-mode: forwards;
-// }
-
-// #spring:checked ~ .spring {
-//   animation: fade-in 5s 1;
-//   animation-fill-mode: forwards;
-//   animation-delay: 5s;
-// }
-
-// #spring:checked ~ .winter {
-//   animation: fade-out 5s 1;
-//   animation-fill-mode: forwards;
-// }
 
 @keyframes fade-out {
   0% {
@@ -143,18 +148,15 @@ button {
     opacity: 0;
   }
   100% {
-    //display: none;
     opacity: 0;
   }
 }
 
 @keyframes fade-in {
   0% {
-    //display: none;
     opacity: 0;
   }
   1% {
-    //display: block;
     opacity: 0;
   }
   100% {

@@ -40,10 +40,6 @@ arrowLeft.addEventListener('click', () => {
 });
 // fade-in fade-out in favorites section
 const labelSeason = document.querySelectorAll('.label__season');
-const winter = document.querySelectorAll('.winter');
-const spring = document.querySelectorAll('.spring');
-const summer = document.querySelectorAll('.summer');
-const autumn = document.querySelectorAll('.autumn');
 const book = document.querySelectorAll('.book');
 labelSeason.forEach((el) =>
   el.addEventListener('click', () => {
@@ -60,6 +56,6 @@ labelSeason.forEach((el) =>
         item.classList.add('show');
         item.style.display = 'block';
       });
-    }, 5000);
+    }, 1000);
   })
 );

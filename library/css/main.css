@@ -318,10 +318,40 @@ hr {
   margin-bottom: 40px;
   font: 400 20px "Inter";
 }
+.favorites__seasons input {
+  display: none;
+}
+.favorites__seasons input + .label__season::after {
+  content: "";
+  position: absolute;
+  visibility: hidden;
+  width: 7px;
+  height: 7px;
+  background-color: #000000;
+  border-radius: 50%;
+  left: 5px;
+  top: 7px;
+}
+.favorites__seasons input:checked + .label__season::after {
+  visibility: visible;
+}
 @media (max-width: 650px) {
   .favorites__seasons {
     gap: 15px;
   }
+}
+
+.label__season {
+  position: relative;
+}
+.label__season::before {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin-right: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
 }
 
 .favorites__book {
@@ -331,9 +361,6 @@ hr {
   justify-content: space-between;
   row-gap: 40px;
   margin-right: 40px;
-}
-.favorites__book input {
-  display: none;
 }
 @media (max-width: 1340px) {
   .favorites__book {
@@ -412,12 +439,12 @@ button:hover {
 
 .book.show {
   display: block;
-  animation: fade-in 5s 1;
+  animation: fade-in 1s 1;
   animation-fill-mode: forwards;
 }
 
 .book.hidden {
-  animation: fade-out 5s 1;
+  animation: fade-out 1s 1;
   animation-fill-mode: forwards;
 }
 
