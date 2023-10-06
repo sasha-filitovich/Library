@@ -208,7 +208,8 @@ hr {
   }
   .about__slider-arrows .arrow-left, .about__slider-arrows .arrow-right {
     display: block;
-    margin-top: -70px;
+    margin-top: -80px;
+    cursor: pointer;
   }
 }
 
@@ -219,6 +220,7 @@ hr {
 .about__slider input {
   display: none;
 }
+
 .slider {
   display: grid;
   grid-template-columns: repeat(5, 32.1428571429%);
@@ -330,6 +332,9 @@ hr {
   row-gap: 40px;
   margin-right: 40px;
 }
+.favorites__book input {
+  display: none;
+}
 @media (max-width: 1340px) {
   .favorites__book {
     grid-template-columns: 47% 47%;
@@ -401,6 +406,43 @@ button:hover {
   background-color: #BB945F;
 }
 
+.spring {
+  display: none;
+}
+
+.book.show {
+  display: block;
+  animation: fade-in 5s 1;
+  animation-fill-mode: forwards;
+}
+
+.book.hidden {
+  animation: fade-out 5s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .shop__text {
   margin: 40px 0;
   font: 400 20px/40px "Inter";

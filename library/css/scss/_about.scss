@@ -1,21 +1,3 @@
-// #about {
-//   position: relative;
-//   @media (max-width: 770px) {
-//     &::before {
-//       content: url(../assets/svg/carret_left.svg);
-//       position: absolute;
-//       top: 55%;
-//       left: 10%;
-//     }
-//     &::after {
-//       content: url(../assets/svg/carret_right.svg);
-//       position: absolute;
-//       top: 55%;
-//       right: 10%;
-//     }
-//   }
-// }
-
 h2 {
   margin: 20px 0;
   color: #0C0C0E;
@@ -52,6 +34,7 @@ hr {
     .arrow-left, .arrow-right {
       display: block;
       margin-top: -80px;
+      cursor: pointer;
     }
   }
 }

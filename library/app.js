@@ -25,3 +25,41 @@ overlay.addEventListener('click', burgerClose);
 //slider in about section
 const arrowLeft = document.querySelector('.arrow-left');
 const arrowRight = document.querySelector('.arrow-right');
+const inputImg = document.querySelectorAll('input[name="img"]');
+arrowRight.addEventListener('click', () => {
+  const inputCheckedNum = document.querySelector('input[name="img"]:checked').id[3];
+  if (inputCheckedNum < 5) {
+    inputImg[inputCheckedNum].checked = true;
+  }
+});
+arrowLeft.addEventListener('click', () => {
+  const inputCheckedNum = document.querySelector('input[name="img"]:checked').id[3];
+  if (inputCheckedNum > 1) {
+    inputImg[inputCheckedNum - 2].checked = true;
+  }
+});
+// fade-in fade-out in favorites section
+const labelSeason = document.querySelectorAll('.label__season');
+const winter = document.querySelectorAll('.winter');
+const spring = document.querySelectorAll('.spring');
+const summer = document.querySelectorAll('.summer');
+const autumn = document.querySelectorAll('.autumn');
+const book = document.querySelectorAll('.book');
+labelSeason.forEach((el) =>
+  el.addEventListener('click', () => {
+    const labelFor = el.htmlFor;
+    const season = document.querySelectorAll(`.${labelFor}`);
+    book.forEach((item) => item.classList.add('hidden'));
+    setTimeout(function () {
+      book.forEach((item) => {
+        item.classList.remove('show');
+        item.classList.remove('hidden');
+        item.style.display = 'none';
+      });
+      season.forEach((item) => {
+        item.classList.add('show');
+        item.style.display = 'block';
+      });
+    }, 5000);
+  })
+);
