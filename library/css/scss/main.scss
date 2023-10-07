@@ -21,7 +21,7 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  //overflow-x: hidden;
   &.lock {
     overflow: hidden;
   }
@@ -49,3 +49,4 @@ body {
 @import 'contacts';
 @import 'library-cards';
 @import 'footer';
+@import 'modals';

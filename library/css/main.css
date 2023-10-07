@@ -18,7 +18,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 html.lock {
   overflow: hidden;
@@ -48,7 +47,7 @@ body.lock {
 }
 .overlay.active {
   background: rgba(41, 41, 41, 0.6);
-  z-index: 0;
+  z-index: 1;
   transition: background-color 0.5s;
 }
 
@@ -59,6 +58,7 @@ body.lock {
 }
 
 .header__wrapper {
+  position: relative;
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
@@ -83,12 +83,13 @@ body.lock {
     width: 332px;
     height: 100vh;
     right: -100%;
-    top: 0;
+    top: -20px;
     background-color: #0C0C0E;
+    z-index: 1;
     transition: all 0.8s;
   }
   .header__nav.active {
-    right: 0;
+    right: -13px;
   }
 }
 
@@ -136,6 +137,7 @@ a:hover {
     position: relative;
     width: 45px;
     height: 20px;
+    z-index: 1;
     cursor: pointer;
   }
   .burger::before {
@@ -166,6 +168,38 @@ a:hover {
     top: 9px;
     transform: rotate(-45deg);
   }
+}
+
+.drop-menu {
+  position: absolute;
+  width: 80px;
+  height: 0;
+  background-color: #FFFFFF;
+  right: 0;
+  top: 50px;
+  overflow: hidden;
+  transition: height 0.5s;
+}
+.drop-menu hr {
+  width: 40px;
+  height: 1px;
+  margin-bottom: 15px;
+  background-color: #BB945F;
+}
+.drop-menu p {
+  margin: 5px 0;
+  color: #000000;
+  font: 400 15px/20px "Inter";
+  text-align: center;
+}
+@media (max-width: 1024px) {
+  .drop-menu {
+    right: 85px;
+  }
+}
+
+.drop-menu.active {
+  height: 115px;
 }
 
 .welcome__img {
@@ -335,6 +369,13 @@ hr {
 .favorites__seasons input:checked + .label__season::after {
   visibility: visible;
 }
+@media (max-width: 1024px) {
+  .favorites__seasons {
+    position: sticky;
+    top: 10px;
+    z-index: 1;
+  }
+}
 @media (max-width: 650px) {
   .favorites__seasons {
     gap: 15px;
@@ -433,7 +474,7 @@ button:hover {
   background-color: #BB945F;
 }
 
-.spring {
+.spring, .summer, .autumn {
   display: none;
 }
 
@@ -452,18 +493,12 @@ button:hover {
   0% {
     opacity: 1;
   }
-  99% {
-    opacity: 0;
-  }
   100% {
     opacity: 0;
   }
 }
 @keyframes fade-in {
   0% {
-    opacity: 0;
-  }
-  1% {
     opacity: 0;
   }
   100% {
@@ -714,6 +749,51 @@ footer hr {
 }
 .footer__dev a:hover {
   color: #BB945F;
+}
+
+.modal__wrapper {
+  width: 250px;
+  padding: 20px 25px;
+}
+.modal__wrapper label {
+  font: 400 15px/20px "Inter";
+  letter-spacing: 0.3px;
+}
+.modal__wrapper input {
+  width: 200px;
+  height: 20px;
+  margin: 10px 0;
+  border: 1px solid #BB945F;
+}
+
+.modal__title {
+  margin: 0 0 20px;
+  text-align: center;
+  font: 20px "Forum";
+  letter-spacing: 0.4px;
+}
+
+input[type=submit] {
+  width: 75px;
+  height: 30px;
+  background-color: transparent;
+  font: 700 10px "Inter";
+  letter-spacing: 1px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+}
+
+.modal__caption {
+  display: inline-block;
+  padding: 0;
+  margin: 0 10px 0 0;
+  font: 400 10px "Inter";
+}
+
+.modal__link {
+  font: 700 10px "Inter";
+  letter-spacing: 1px;
+  border-bottom: 1px solid black;
 }
 
 /*# sourceMappingURL=main.css.map */

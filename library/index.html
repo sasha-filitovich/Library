@@ -22,8 +22,14 @@
             <li><a href="#cards">Library Card</a></li>
           </ul>
         </nav>
-        <img src="assets/svg/icon_profile.svg" alt="Log icon">
+        <img class="profile-icon" src="assets/svg/icon_profile.svg" alt="Log icon">
         <div class="burger"></div>
+      </div>
+      <div class="drop-menu">
+        <p><strong>Profile</strong></p>
+        <hr>
+        <p>Log In</p>
+        <p>Register</p>
       </div>
     </div>
   </header>
@@ -326,6 +332,28 @@
       </div>
     </div>
   </footer>
+  <div class="modal_register">
+    <div class="modal__wrapper">
+      <p class="modal__title">REGISTER</p>
+      <label>First Name<br><input type="text"></label><br>
+      <label>Last Name<br><input type="text"></label><br>
+      <label>E-mail<br><input type="email"></label><br>
+      <label>Password<br><input type="password"></label><br>
+      <input type="submit" value="Sign Up">
+      <p class="modal__caption">Already have an account?</p>
+      <span class="modal__link">Login</span>
+    </div>
+  </div>
+  <div class="modal_login">
+    <div class="modal__wrapper">
+      <p class="modal__title">LOGIN</p>
+      <label>E-mail or readers card<br><input type="text"></label><br>
+      <label>Password<br><input type="password"></label><br>
+      <input type="submit" value="Log In"><br>
+      <p class="modal__caption">Don’t have an account?</p>
+      <span class="modal__link">Register</span>
+    </div>
+  </div>
   <script type="module" src="app.js"></script>
 </body>
 </html>

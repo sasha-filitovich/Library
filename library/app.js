@@ -3,6 +3,7 @@ const burger = document.querySelector('.burger');
 const headerNav = document.querySelector('.header__nav');
 const navLinks = headerNav.querySelectorAll('li');
 const overlay = document.querySelector('.overlay');
+const dropMenu = document.querySelector('.drop-menu');
 //burger
 burger.addEventListener('click', () => {
   burger.classList.toggle('active');
@@ -10,6 +11,7 @@ burger.addEventListener('click', () => {
   html.classList.toggle('lock');
   document.body.classList.toggle('lock');
   overlay.classList.toggle('active');
+  dropMenu.classList.remove('active');
 });
 function burgerClose() {
   headerNav.classList.remove('active');
@@ -59,3 +61,14 @@ labelSeason.forEach((el) =>
     }, 1000);
   })
 );
+// drop-menu in header
+const profileIcon = document.querySelector('.profile-icon');
+profileIcon.addEventListener('click', () => {
+  burgerClose();
+  dropMenu.classList.toggle('active');
+});
+document.body.addEventListener('click', (e) => {
+  if (e.target !== dropMenu && e.target.parentNode !== dropMenu && e.target !== profileIcon) {
+    dropMenu.classList.remove('active');
+  }
+});

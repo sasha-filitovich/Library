@@ -27,6 +27,11 @@
       visibility: visible;
     }
   }
+  @media (max-width: 1024px) {
+    position: sticky;
+    top: 10px;
+    z-index: 1;
+  }
   @media (max-width: 650px) {
     gap: 15px;
   }
@@ -125,7 +130,7 @@ button {
   }
 }
 
-.spring {
+.spring, .summer, .autumn {
   display: none;
 }
 
@@ -144,9 +149,6 @@ button {
   0% {
     opacity: 1;
   }
-  99% {
-    opacity: 0;
-  }
   100% {
     opacity: 0;
   }
@@ -154,9 +156,6 @@ button {
 
 @keyframes fade-in {
   0% {
-    opacity: 0;
-  }
-  1% {
     opacity: 0;
   }
   100% {
