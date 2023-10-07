@@ -68,7 +68,40 @@ profileIcon.addEventListener('click', () => {
   dropMenu.classList.toggle('active');
 });
 document.body.addEventListener('click', (e) => {
-  if (e.target !== dropMenu && e.target.parentNode !== dropMenu && e.target !== profileIcon) {
+  if (e.target !== dropMenu && e.target !== profileIcon) {
     dropMenu.classList.remove('active');
   }
 });
+// open modal register and login
+const login = document.querySelectorAll('.login');
+const register = document.querySelectorAll('.register');
+const modalLogin = document.querySelector('.modal_login');
+const modalRegister = document.querySelector('.modal_register');
+const modalClose = document.querySelectorAll('.modal__close');
+const modals = [modalLogin, modalRegister];
+login.forEach((el) =>
+  el.addEventListener('click', () => {
+    modalLogin.classList.add('active');
+    modalRegister.classList.remove('active');
+  })
+);
+register.forEach((el) =>
+  el.addEventListener('click', () => {
+    modalLogin.classList.remove('active');
+    modalRegister.classList.add('active');
+  })
+);
+modalClose.forEach((el) =>
+  el.addEventListener('click', () => {
+    modalLogin.classList.remove('active');
+    modalRegister.classList.remove('active');
+  })
+);
+modals.forEach((el) =>
+  el.addEventListener('click', (e) => {
+    if (e.target === modalLogin || e.target === modalRegister) {
+      modalLogin.classList.remove('active');
+      modalRegister.classList.remove('active');
+    }
+  })
+);
