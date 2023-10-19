@@ -170,7 +170,7 @@ a:hover {
   }
 }
 
-.drop-menu {
+.drop-menu, .drop-menu_logged {
   position: absolute;
   width: 80px;
   height: 0;
@@ -180,13 +180,13 @@ a:hover {
   overflow: hidden;
   transition: height 0.5s;
 }
-.drop-menu hr {
+.drop-menu hr, .drop-menu_logged hr {
   width: 40px;
   height: 1px;
   margin-bottom: 15px;
   background-color: #BB945F;
 }
-.drop-menu p {
+.drop-menu p, .drop-menu_logged p {
   margin: 5px 0;
   color: #000000;
   font: 400 15px/20px "Inter";
@@ -194,13 +194,27 @@ a:hover {
   cursor: pointer;
 }
 @media (max-width: 1024px) {
-  .drop-menu {
+  .drop-menu, .drop-menu_logged {
     right: 85px;
   }
 }
 
-.drop-menu.active {
+.drop-menu.active, .drop-menu_logged.active {
   height: 115px;
+}
+
+.profile-letters {
+  display: none;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  text-align: center;
+  font: 400 16px/28px "Inter";
+  color: #000000;
+  z-index: 1;
+  cursor: pointer;
 }
 
 .welcome__img {

@@ -63,13 +63,20 @@ labelSeason.forEach((el) =>
 );
 // drop-menu in header
 const profileIcon = document.querySelector('.profile-icon');
+const profileLetters = document.querySelector('.profile-letters');
+const dropMenuLogged = document.querySelector('.drop-menu_logged');
 profileIcon.addEventListener('click', () => {
   burgerClose();
   dropMenu.classList.toggle('active');
 });
+profileLetters.addEventListener('click', () => {
+  burgerClose();
+  dropMenuLogged.classList.toggle('active');
+});
 document.body.addEventListener('click', (e) => {
-  if (e.target !== dropMenu && e.target !== profileIcon) {
+  if (e.target !== dropMenu && e.target !== profileIcon && e.target !== profileLetters) {
     dropMenu.classList.remove('active');
+    dropMenuLogged.classList.remove('active');
   }
 });
 // open modal register and login
@@ -105,3 +112,23 @@ modals.forEach((el) =>
     }
   })
 );
+// registration
+const registerSubmit = modalRegister.querySelector('input[type="submit"]');
+const registerForm = modalRegister.querySelector('form');
+const registerName = document.querySelector('.register__name');
+const registerSurname = document.querySelector('.register__surname');
+const registerEmail = modalRegister.querySelector('input[type="email"]');
+const registerPassword = modalRegister.querySelector('input[type="password"]');
+registerForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const nameUpperCase = registerName.value[0].toUpperCase() + registerName.value.slice(1);
+  const surnameUpperCase = registerSurname.value[0].toUpperCase() + registerSurname.value.slice(1);
+  localStorage.setItem('name', nameUpperCase);
+  localStorage.setItem('surname', surnameUpperCase);
+  modalRegister.classList.remove('active');
+  profileIcon.style.display = 'none';
+  profileLetters.style.display = 'block';
+  profileLetters.textContent = nameUpperCase[0] + surnameUpperCase[0];
+  profileLetters.setAttribute('title', `${nameUpperCase} ${surnameUpperCase}`);
+});
+//

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
   <title>Library</title>
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -23,6 +23,7 @@
           </ul>
         </nav>
         <img class="profile-icon" src="assets/svg/icon_profile.svg" alt="Log icon">
+        <div class="profile-letters"></div>
         <div class="burger"></div>
       </div>
       <div class="drop-menu">
@@ -30,6 +31,12 @@
         <hr>
         <p class="login">Log In</p>
         <p class="register">Register</p>
+      </div>
+      <div class="drop-menu_logged">
+        <p><strong>Profile</strong></p>
+        <hr>
+        <p class="">My Profile</p>
+        <p class="">Log Out</p>
       </div>
     </div>
   </header>
@@ -304,8 +311,8 @@
             <h5>Get a reader card</h5>
             <p>You will be able to see a reader card after logging into account or you can register a new account</p>
             <div class="button__box">
-              <button>Sign Up</button>
-              <button>Log in</button>
+              <button class="register">Sign Up</button>
+              <button class="login">Log in</button>
             </div>
           </div>
         </div>
@@ -335,25 +342,51 @@
   <div class="modal_register">
     <div class="modal__wrapper">
       <p class="modal__title">REGISTER</p>
-      <label>First Name<br><input type="text"></label><br>
-      <label>Last Name<br><input type="text"></label><br>
-      <label>E-mail<br><input type="email"></label><br>
-      <label>Password<br><input type="password"></label><br>
-      <input type="submit" value="Sign Up">
+      <form action="">
+        <label>First Name<br><input class="register__name" type="text" required></label><br>
+        <label>Last Name<br><input class="register__surname" type="text" required></label><br>
+        <label>E-mail<br><input type="email" required></label><br>
+        <label>Password<br><input type="password" minlength="8" required></label><br>
+        <input type="submit" value="Sign Up">
+      </form>
       <p class="modal__caption">Already have an account?</p>
       <span class="modal__link login">Login</span>
-      <img class="modal__close" src="assets/svg/close_btn.svg">
+      <img class="modal__close" src="assets/svg/close_btn.svg" alt="Close">
     </div>
   </div>
   <div class="modal_login">
     <div class="modal__wrapper">
       <p class="modal__title">LOGIN</p>
       <label>E-mail or readers card<br><input type="text"></label><br>
-      <label>Password<br><input type="password"></label><br>
+      <label>Password<br><input type="password" minlength="8"></label><br>
       <input type="submit" value="Log In"><br>
       <p class="modal__caption">Don’t have an account?</p>
       <span class="modal__link register">Register</span>
-      <img class="modal__close" src="assets/svg/close_btn.svg">
+      <img class="modal__close" src="assets/svg/close_btn.svg" alt="Close">
+    </div>
+  </div>
+  <div class="modal_profile">
+    <div class="modal__wrapper_profile">
+      <div>
+        <p></p>
+        <p></p>
+      </div>
+      <div>
+        <p class="profile__title">MY PROFILE</p>
+        <div class="profile__info">
+          <p>Visits</p>
+          <img src="assets/svg/union.svg" alt="Person">
+          <p></p>
+          <p>Bonuses</p>
+          <img src="assets/svg/star.svg" alt="Star">
+          <p></p>
+          <p>Books</p>
+          <img src="assets/svg/book.svg" alt="Book">
+          <p></p>
+        </div>
+        <p>Rented books</p>
+        <p>Card number</p>
+      </div>
     </div>
   </div>
   <script type="module" src="app.js"></script>
