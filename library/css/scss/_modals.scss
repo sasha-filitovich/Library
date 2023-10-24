@@ -1,4 +1,4 @@
-.modal_register, .modal_login {
+.modal_register, .modal_login, .modal_profile {
   display: none;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,7 @@
   background: rgba(41, 41, 41, 0.6);
 }
 
-.modal_register.active, .modal_login.active {
+.modal_register.active, .modal_login.active, .modal_profile.active {
   display: flex;
 }
 
@@ -68,4 +68,63 @@ input[type='submit'] {
   top: 15px;
   right: 15px;
   cursor: pointer;
+}
+
+.modal__wrapper_profile {
+  position: relative;
+  display: grid;
+  grid-template-columns: 170px minmax(300px, 430px);
+  background-color: #FFFFFF;
+  font: 400 20px 'Inter';
+}
+
+.profile__label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  background-color: #0C0C0E;
+}
+
+.profile__avatar {
+  width: min-content;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  padding: 30px 27px;
+  color:#BB945F;
+}
+
+.profile__name {
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  padding: 5px 15px;
+}
+
+.profile__content {
+  padding-left: 20px;
+}
+
+.profile__info {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, min-content);
+  justify-items: center;
+  gap: 10px 20px;
+  p {
+    margin: 0;
+  }
+}
+
+.profile__title {
+  margin: 40px 0;
+}
+
+.profile__card {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  align-items: center;
+  gap: 15px;
+}
+
+.card-number {
+  color:#BB945F;
 }

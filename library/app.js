@@ -79,13 +79,15 @@ document.body.addEventListener('click', (e) => {
     dropMenuLogged.classList.remove('active');
   }
 });
-// open modal register and login
+// open and close modal register and login, profile
 const login = document.querySelectorAll('.login');
 const register = document.querySelectorAll('.register');
+const dropMenuProfile = document.querySelector('.drop-menu__profile');
 const modalLogin = document.querySelector('.modal_login');
 const modalRegister = document.querySelector('.modal_register');
+const modalProfile = document.querySelector('.modal_profile');
 const modalClose = document.querySelectorAll('.modal__close');
-const modals = [modalLogin, modalRegister];
+const modals = [modalLogin, modalRegister, modalProfile];
 login.forEach((el) =>
   el.addEventListener('click', () => {
     modalLogin.classList.add('active');
@@ -98,17 +100,22 @@ register.forEach((el) =>
     modalRegister.classList.add('active');
   })
 );
+dropMenuProfile.addEventListener('click', () => {
+  modalProfile.classList.add('active');
+});
 modalClose.forEach((el) =>
   el.addEventListener('click', () => {
     modalLogin.classList.remove('active');
     modalRegister.classList.remove('active');
+    modalProfile.classList.remove('active');
   })
 );
 modals.forEach((el) =>
   el.addEventListener('click', (e) => {
-    if (e.target === modalLogin || e.target === modalRegister) {
+    if (e.target === modalLogin || e.target === modalRegister || e.target === modalProfile) {
       modalLogin.classList.remove('active');
       modalRegister.classList.remove('active');
+      modalProfile.classList.remove('active');
     }
   })
 );
@@ -119,16 +126,61 @@ const registerName = document.querySelector('.register__name');
 const registerSurname = document.querySelector('.register__surname');
 const registerEmail = modalRegister.querySelector('input[type="email"]');
 const registerPassword = modalRegister.querySelector('input[type="password"]');
+const profileAvatar = document.querySelector('.profile__avatar');
+const profileName = document.querySelector('.profile__name');
+const arr16 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+const cardNumberCss = document.querySelector('.card-number');
 registerForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const nameUpperCase = registerName.value[0].toUpperCase() + registerName.value.slice(1);
   const surnameUpperCase = registerSurname.value[0].toUpperCase() + registerSurname.value.slice(1);
-  localStorage.setItem('name', nameUpperCase);
-  localStorage.setItem('surname', surnameUpperCase);
+  // create card number
+  let cardNumber = '';
+  for (let i = 0; i < 9; i++) {
+    const randomNum = Math.floor(Math.random() * 15);
+    cardNumber += arr16[randomNum];
+  }
+  localStorage.setItem('library', [
+    nameUpperCase,
+    surnameUpperCase,
+    registerEmail.value,
+    registerPassword.value,
+    cardNumber,
+  ]);
   modalRegister.classList.remove('active');
   profileIcon.style.display = 'none';
   profileLetters.style.display = 'block';
   profileLetters.textContent = nameUpperCase[0] + surnameUpperCase[0];
   profileLetters.setAttribute('title', `${nameUpperCase} ${surnameUpperCase}`);
+  profileAvatar.textContent = nameUpperCase[0] + surnameUpperCase[0];
+  profileName.textContent = nameUpperCase + ' ' + surnameUpperCase;
+  cardNumberCss.textContent = cardNumber;
 });
-//
+// log in
+const loginForm = modalLogin.querySelector('form');
+const loginEmail = modalLogin.querySelector('input[type="text"]');
+const loginPassword = modalLogin.querySelector('input[type="password"]');
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (
+    localStorage.getItem('library').split(',')[2] === loginEmail.value &&
+    localStorage.getItem('library').split(',')[3] === loginPassword.value
+  ) {
+    const name = localStorage.getItem('library').split(',')[0];
+    const surname = localStorage.getItem('library').split(',')[1];
+    modalLogin.classList.remove('active');
+    profileIcon.style.display = 'none';
+    profileLetters.style.display = 'block';
+    profileLetters.textContent = name[0] + surname[0];
+    profileLetters.setAttribute('title', `${name} ${surname}`);
+    profileAvatar.textContent = name[0] + surname[0];
+    profileName.textContent = name + ' ' + surname;
+    cardNumberCss.textContent = localStorage.getItem('library').split(',')[4];
+  }
+});
+// logout
+const logout = document.querySelector('.logout');
+logout.addEventListener('click', () => {
+  profileIcon.style.display = 'block';
+  profileLetters.style.display = 'none';
+});
