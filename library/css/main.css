@@ -488,6 +488,11 @@ button:hover {
   border-color: #BB945F;
   background-color: #BB945F;
 }
+button:disabled {
+  border: 1px solid #BB945F;
+  color: #BB945F;
+  pointer-events: none;
+}
 
 .spring, .summer, .autumn {
   display: none;
@@ -661,6 +666,20 @@ h3 {
   border: none;
   border-radius: 10px;
   font: 30px/50px "Forum";
+  color: #BB945F;
+}
+
+.cards__login {
+  display: none;
+  grid-template: repeat(3, 1fr)/repeat(3, min-content);
+  justify-content: center;
+  justify-items: center;
+  gap: 0px 35px;
+}
+.cards__login p {
+  margin: 0;
+  font: 400 10px/20px "Inter";
+  letter-spacing: 0.2px;
 }
 
 .cards__get {
@@ -766,7 +785,7 @@ footer hr {
   color: #BB945F;
 }
 
-.modal_register, .modal_login, .modal_profile {
+.modal_register, .modal_login, .modal_profile, .modal_buy {
   display: none;
   justify-content: center;
   align-items: center;
@@ -778,7 +797,7 @@ footer hr {
   background: rgba(41, 41, 41, 0.6);
 }
 
-.modal_register.active, .modal_login.active, .modal_profile.active {
+.modal_register.active, .modal_login.active, .modal_profile.active, .modal_buy.active {
   display: flex;
 }
 
@@ -895,6 +914,67 @@ input[type=submit] {
 
 .card-number {
   color: #BB945F;
+}
+
+.profile__books-list {
+  padding-left: 20px;
+  width: 370px;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.modal_buy__wrapper {
+  position: relative;
+  display: grid;
+  grid-template: repeat(2, auto)/200px minmax(160px, 330px);
+  gap: 30px 40px;
+  background-color: #FFFFFF;
+  font: 400 15px/20px "Inter";
+  letter-spacing: 0.3px;
+}
+.modal_buy__wrapper form {
+  padding: 0 0 30px 35px;
+}
+.modal_buy__wrapper input {
+  margin: 10px 0;
+  border: 1px solid #BB945F;
+}
+.modal_buy__wrapper input[type=submit] {
+  border: 1px solid #0C0C0E;
+}
+.modal_buy__wrapper .modal__close {
+  top: 20px;
+  right: 20px;
+  filter: invert(100%);
+}
+
+.modal_buy__title {
+  grid-column: span 2;
+  margin: 0;
+  background-color: #0C0C0E;
+  font: 40px/60px "Forum";
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.input_short {
+  width: 45px;
+}
+
+.modal__price {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 0 21px;
+  font: 700 20px "Inter";
+  top: 8px;
+}
+
+.modal_buy__text {
+  padding: 0 35px 40px 0;
+  text-align: justify;
+  color: #8E8E8E;
+  letter-spacing: 2px;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -41,6 +41,20 @@
     border: none;
     border-radius: 10px;
     font: 30px/50px 'Forum';
+    color:#BB945F;
+  }
+}
+
+.cards__login {
+  display: none;
+  grid-template: repeat(3, 1fr) / repeat(3, min-content);
+  justify-content: center;
+  justify-items: center;
+  gap: 0px 35px;
+  p {
+    margin: 0;
+    font: 400 10px/20px 'Inter';
+    letter-spacing: 0.2px;
   }
 }
 

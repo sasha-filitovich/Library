@@ -1,4 +1,4 @@
-.modal_register, .modal_login, .modal_profile {
+.modal_register, .modal_login, .modal_profile, .modal_buy {
   display: none;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,7 @@
   background: rgba(41, 41, 41, 0.6);
 }
 
-.modal_register.active, .modal_login.active, .modal_profile.active {
+.modal_register.active, .modal_login.active, .modal_profile.active, .modal_buy.active {
   display: flex;
 }
 
@@ -127,4 +127,63 @@ input[type='submit'] {
 
 .card-number {
   color:#BB945F;
+}
+
+.profile__books-list {
+  padding-left: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.modal_buy__wrapper {
+  position: relative;
+  display: grid;
+  grid-template: repeat(2, auto) / 200px minmax(160px, 330px);
+  gap: 30px 40px;
+  background-color: #FFFFFF;
+  font: 400 15px/20px 'Inter';
+  letter-spacing: 0.3px;
+  form {
+    padding: 0 0 30px 35px;
+  }
+  input {
+    margin: 10px 0;
+    border: 1px solid #BB945F;
+  }
+  input[type="submit"] {
+    border: 1px solid #0C0C0E;
+  }
+  .modal__close {
+    top: 20px;
+    right: 20px;
+    filter: invert(100%);
+  }
+}
+
+.modal_buy__title {
+  grid-column: span 2;
+  margin: 0;
+  background-color: #0C0C0E;
+  font: 40px/60px 'Forum';
+  color:#FFFFFF;
+  text-align: center;
+}
+
+.input_short {
+  width: 45px;
+}
+
+.modal__price {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 0 21px;
+  font: 700 20px 'Inter';
+  top: 8px;
+}
+
+.modal_buy__text {
+  padding: 0 35px 40px 0;
+  text-align: justify;
+  color: #8E8E8E;
+  letter-spacing: 2px;
 }

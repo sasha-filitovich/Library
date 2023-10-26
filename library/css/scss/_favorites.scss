@@ -128,6 +128,11 @@ button {
     border-color: #BB945F;
     background-color: #BB945F;
   }
+  &:disabled {
+    border: 1px solid #BB945F;
+    color:#BB945F;
+    pointer-events: none;
+  }
 }
 
 .spring, .summer, .autumn {

@@ -95,7 +95,7 @@
           <div class="book winter show">
             <h6>Staff Picks</h6>
             <hr>
-            <p class="book__title">THE BOOK EATERS<br>By Sunyi Dean</p>
+            <p class="book__title">The book eaters<br>By Sunyi Dean</p>
             <p class="book__text">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
             <button>Buy</button>
             <img src="assets/img/book1.png">
@@ -301,10 +301,21 @@
             <div class="cards__find">
               <div class="cards__inputs">
                 <p>Brooklyn Public Library</p>
-                <input type="text" placeholder="Reader's name" pattern="[a-zA-Z0-9-]">
-                <input type="text" placeholder="Card number" pattern="[a-zA-Z0-9-]">
+                <input class="cards_name" type="text" placeholder="Reader's name" pattern="[a-zA-Z0-9-]">
+                <input class="cards_number" type="text" placeholder="Card number" pattern="[a-zA-Z0-9-]">
               </div>
               <button>Check the card</button>
+              <div class="cards__login">
+                <p>Visits</p>
+                <p>Bonuses</p>
+                <p>Books</p>
+                <img src="assets/svg/union.svg" alt="Person">
+                <img src="assets/svg/star.svg" alt="Star">
+                <img src="assets/svg/book.svg" alt="Book">
+                <p class="profile_visits">0</p>
+                <p>0</p>
+                <p class="profile_books">0</p>
+              </div>
             </div>
           </div>
           <div class="cards__get">
@@ -382,11 +393,12 @@
           <img src="assets/svg/union.svg" alt="Person">
           <img src="assets/svg/star.svg" alt="Star">
           <img src="assets/svg/book.svg" alt="Book">
+          <p class="profile_visits">0</p>
           <p>0</p>
-          <p>0</p>
-          <p>0</p>
+          <p class="profile_books">0</p>
         </div>
         <p>Rented books</p>
+        <ul class="profile__books-list"></ul>
         <div class="profile__card">
           <p>Card number</p>
           <p class="card-number"></p>
@@ -398,19 +410,23 @@
   </div>
   <div class="modal_buy">
     <div class="modal_buy__wrapper">
-      <p>BUY A LIBRARY CARD</p>
+      <p class="modal_buy__title">BUY A LIBRARY CARD</p>
       <div>
         <form action="">
           <label>Bank card number<br><input type="text" pattern="[0-9]{16}" required></label><br>
-          <label>Expiration code<br><input type="text" pattern="[0-9]{2}" required><input type="text" pattern="[0-9]{2}" required></label><br>
-          <label>CVC<br><input type="text" pattern="[0-9]{3}" required></label><br>
+          <label>Expiration code<br>
+            <input class="input_short" type="text" pattern="[0-9]{2}" required>
+            <input class="input_short" type="text" pattern="[0-9]{2}" required>
+          </label><br>
+          <label>CVC<br><input class="input_short" type="text" pattern="[0-9]{3}" required></label><br>
           <label>Cardholder name<br><input type="text" required></label><br>
           <label>Postal code<br><input type="text" required></label><br>
           <label>City / Town<br><input type="text" required></label><br>
-          <input type="submit" value="Buy"><span>$ 25.00</span>
+          <input type="submit" value="Buy"><p class="modal__price">$25.00</p>
         </form>
       </div>
-      <div>If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.</div>
+      <div class="modal_buy__text">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.</div>
+      <img class="modal__close" src="assets/svg/close_btn.svg" alt="Close">
     </div>
   </div>
   <script type="module" src="app.js"></script>

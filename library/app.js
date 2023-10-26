@@ -86,8 +86,9 @@ const dropMenuProfile = document.querySelector('.drop-menu__profile');
 const modalLogin = document.querySelector('.modal_login');
 const modalRegister = document.querySelector('.modal_register');
 const modalProfile = document.querySelector('.modal_profile');
+const modalBuy = document.querySelector('.modal_buy');
 const modalClose = document.querySelectorAll('.modal__close');
-const modals = [modalLogin, modalRegister, modalProfile];
+const modals = [modalLogin, modalRegister, modalProfile, modalBuy];
 login.forEach((el) =>
   el.addEventListener('click', () => {
     modalLogin.classList.add('active');
@@ -108,19 +109,26 @@ modalClose.forEach((el) =>
     modalLogin.classList.remove('active');
     modalRegister.classList.remove('active');
     modalProfile.classList.remove('active');
+    modalBuy.classList.remove('active');
   })
 );
 modals.forEach((el) =>
   el.addEventListener('click', (e) => {
-    if (e.target === modalLogin || e.target === modalRegister || e.target === modalProfile) {
+    if (
+      e.target === modalLogin ||
+      e.target === modalRegister ||
+      e.target === modalProfile ||
+      e.target === modalBuy
+    ) {
       modalLogin.classList.remove('active');
       modalRegister.classList.remove('active');
       modalProfile.classList.remove('active');
+      modalBuy.classList.remove('active');
     }
   })
 );
 // registration
-const registerSubmit = modalRegister.querySelector('input[type="submit"]');
+//const registerSubmit = modalRegister.querySelector('input[type="submit"]');
 const registerForm = modalRegister.querySelector('form');
 const registerName = document.querySelector('.register__name');
 const registerSurname = document.querySelector('.register__surname');
@@ -130,6 +138,11 @@ const profileAvatar = document.querySelector('.profile__avatar');
 const profileName = document.querySelector('.profile__name');
 const arr16 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
 const cardNumberCss = document.querySelector('.card-number');
+const libraryCardsName = document.querySelector('.cards_name');
+const libraryCardsNumber = document.querySelector('.cards_number');
+const libraryCardsBtn = document.querySelector('.cards__find').querySelector('button');
+const libraryCardsLogin = document.querySelector('.cards__login');
+let ifLogin = false;
 registerForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const nameUpperCase = registerName.value[0].toUpperCase() + registerName.value.slice(1);
@@ -155,6 +168,11 @@ registerForm.addEventListener('submit', (e) => {
   profileAvatar.textContent = nameUpperCase[0] + surnameUpperCase[0];
   profileName.textContent = nameUpperCase + ' ' + surnameUpperCase;
   cardNumberCss.textContent = cardNumber;
+  libraryCardsName.value = nameUpperCase + ' ' + surnameUpperCase;
+  libraryCardsNumber.value = cardNumber;
+  libraryCardsBtn.style.display = 'none';
+  libraryCardsLogin.style.display = 'grid';
+  ifLogin = true;
 });
 // log in
 const loginForm = modalLogin.querySelector('form');
@@ -176,6 +194,11 @@ loginForm.addEventListener('submit', (e) => {
     profileAvatar.textContent = name[0] + surname[0];
     profileName.textContent = name + ' ' + surname;
     cardNumberCss.textContent = localStorage.getItem('library').split(',')[4];
+    libraryCardsName.value = name + ' ' + surname;
+    libraryCardsNumber.value = localStorage.getItem('library').split(',')[4];
+    libraryCardsBtn.style.display = 'none';
+    libraryCardsLogin.style.display = 'grid';
+    ifLogin = true;
   }
 });
 // logout
@@ -183,4 +206,41 @@ const logout = document.querySelector('.logout');
 logout.addEventListener('click', () => {
   profileIcon.style.display = 'block';
   profileLetters.style.display = 'none';
+  libraryCardsName.value = '';
+  libraryCardsNumber.value = '';
+  libraryCardsBtn.style.display = 'block';
+  libraryCardsLogin.style.display = 'none';
+  ifLogin = false;
+});
+// button Buy in favorites section
+const buyBtns = document.querySelector('.favorites__book').querySelectorAll('button');
+let cardPaid = localStorage.getItem('cardPaid') || false;
+const profileBooks = document.querySelectorAll('.profile_books');
+const booksList = document.querySelector('.profile__books-list');
+let booksOwn = [];
+buyBtns.forEach((el, ind) =>
+  el.addEventListener('click', (e) => {
+    if (ifLogin === false) {
+      modalLogin.classList.add('active');
+    } else if (cardPaid === false) {
+      modalBuy.classList.add('active');
+    } else {
+      e.target.textContent = 'Own';
+      e.target.setAttribute('disabled', '');
+      booksOwn.push(ind);
+      const bookTitle = e.target.parentNode.querySelector('.book__title').textContent;
+      const li = document.createElement('li');
+      li.innerHTML = bookTitle.replace('By', ',');
+      booksList.append(li);
+      profileBooks.forEach((item) => (item.textContent = booksOwn.length));
+      localStorage.setItem('books', booksOwn);
+    }
+  })
+);
+// modal_buy
+const modalBuyForm = modalBuy.querySelector('form');
+modalBuyForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  localStorage.setItem('cardPaid', true);
+  modalBuy.classList.remove('active');
 });
