@@ -58,7 +58,7 @@
   }
 }
 
-.cards__get {
+.cards__get, .cards__get_logged {
   max-width: 456px;
   p {
     margin: 35px 0;
@@ -73,6 +73,10 @@
     justify-self: center;
     text-align: center;
   }
+}
+
+.cards__get_logged {
+  display: none;
 }
 
 h4 {

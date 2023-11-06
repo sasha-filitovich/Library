@@ -682,25 +682,29 @@ h3 {
   letter-spacing: 0.2px;
 }
 
-.cards__get {
+.cards__get, .cards__get_logged {
   max-width: 456px;
 }
-.cards__get p {
+.cards__get p, .cards__get_logged p {
   margin: 35px 0;
   text-align: end;
   font: 400 20px/40px "Inter";
   letter-spacing: 0.4px;
 }
 @media (max-width: 1024px) {
-  .cards__get p {
+  .cards__get p, .cards__get_logged p {
     text-align: center;
   }
 }
 @media (max-width: 1024px) {
-  .cards__get {
+  .cards__get, .cards__get_logged {
     justify-self: center;
     text-align: center;
   }
+}
+
+.cards__get_logged {
+  display: none;
 }
 
 h4 {
@@ -918,10 +922,8 @@ input[type=submit] {
 
 .profile__books-list {
   padding-left: 20px;
-  width: 370px;
   max-height: 200px;
   overflow-y: auto;
-  overflow-x: auto;
 }
 
 .modal_buy__wrapper {

@@ -82,7 +82,7 @@ document.body.addEventListener('click', (e) => {
 // open and close modal register and login, profile
 const login = document.querySelectorAll('.login');
 const register = document.querySelectorAll('.register');
-const dropMenuProfile = document.querySelector('.drop-menu__profile');
+const dropMenuProfile = document.querySelectorAll('.drop-menu__profile');
 const modalLogin = document.querySelector('.modal_login');
 const modalRegister = document.querySelector('.modal_register');
 const modalProfile = document.querySelector('.modal_profile');
@@ -101,9 +101,11 @@ register.forEach((el) =>
     modalRegister.classList.add('active');
   })
 );
-dropMenuProfile.addEventListener('click', () => {
-  modalProfile.classList.add('active');
-});
+dropMenuProfile.forEach((el) =>
+  el.addEventListener('click', () => {
+    modalProfile.classList.add('active');
+  })
+);
 modalClose.forEach((el) =>
   el.addEventListener('click', () => {
     modalLogin.classList.remove('active');
@@ -142,6 +144,8 @@ const libraryCardsName = document.querySelector('.cards_name');
 const libraryCardsNumber = document.querySelector('.cards_number');
 const libraryCardsBtn = document.querySelector('.cards__find').querySelector('button');
 const libraryCardsLogin = document.querySelector('.cards__login');
+const cardsGet = document.querySelector('.cards__get');
+const cardsGetLogged = document.querySelector('.cards__get_logged');
 let ifLogin = false;
 registerForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -172,8 +176,35 @@ registerForm.addEventListener('submit', (e) => {
   libraryCardsNumber.value = cardNumber;
   libraryCardsBtn.style.display = 'none';
   libraryCardsLogin.style.display = 'grid';
+  cardsGet.style.display = 'none';
+  cardsGetLogged.style.display = 'block';
   ifLogin = true;
 });
+// button Buy in favorites section
+const buyBtns = document.querySelector('.favorites__book').querySelectorAll('button');
+let cardPaid = localStorage.getItem('cardPaid') || false;
+const profileBooks = document.querySelectorAll('.profile_books');
+const booksList = document.querySelector('.profile__books-list');
+let booksOwn = localStorage.getItem('books').split(',') || [];
+buyBtns.forEach((el, ind) =>
+  el.addEventListener('click', (e) => {
+    if (ifLogin === false) {
+      modalLogin.classList.add('active');
+    } else if (cardPaid === false) {
+      modalBuy.classList.add('active');
+    } else {
+      e.target.textContent = 'Own';
+      e.target.setAttribute('disabled', '');
+      booksOwn.push(ind);
+      const bookTitle = e.target.parentNode.querySelector('.book__title').textContent;
+      const li = document.createElement('li');
+      li.innerHTML = bookTitle.replace('By', ',');
+      booksList.append(li);
+      profileBooks.forEach((item) => (item.textContent = booksOwn.length));
+      localStorage.setItem('books', booksOwn);
+    }
+  })
+);
 // log in
 const loginForm = modalLogin.querySelector('form');
 const loginEmail = modalLogin.querySelector('input[type="text"]');
@@ -198,7 +229,18 @@ loginForm.addEventListener('submit', (e) => {
     libraryCardsNumber.value = localStorage.getItem('library').split(',')[4];
     libraryCardsBtn.style.display = 'none';
     libraryCardsLogin.style.display = 'grid';
+    cardsGet.style.display = 'none';
+    cardsGetLogged.style.display = 'block';
     ifLogin = true;
+    profileBooks.forEach((item) => (item.textContent = booksOwn.length));
+    for (let i = 0; i < booksOwn.length; i++) {
+      buyBtns[booksOwn[i]].textContent = 'Own';
+      buyBtns[booksOwn[i]].setAttribute('disabled', '');
+      const bookTitle = buyBtns[booksOwn[i]].parentNode.querySelector('.book__title').textContent;
+      const li = document.createElement('li');
+      li.innerHTML = bookTitle.replace('By', ',');
+      booksList.append(li);
+    }
   }
 });
 // logout
@@ -210,33 +252,14 @@ logout.addEventListener('click', () => {
   libraryCardsNumber.value = '';
   libraryCardsBtn.style.display = 'block';
   libraryCardsLogin.style.display = 'none';
+  cardsGet.style.display = 'block';
+  cardsGetLogged.style.display = 'none';
   ifLogin = false;
+  buyBtns.forEach((el) => {
+    el.textContent = 'Buy';
+    el.removeAttribute('disabled');
+  });
 });
-// button Buy in favorites section
-const buyBtns = document.querySelector('.favorites__book').querySelectorAll('button');
-let cardPaid = localStorage.getItem('cardPaid') || false;
-const profileBooks = document.querySelectorAll('.profile_books');
-const booksList = document.querySelector('.profile__books-list');
-let booksOwn = [];
-buyBtns.forEach((el, ind) =>
-  el.addEventListener('click', (e) => {
-    if (ifLogin === false) {
-      modalLogin.classList.add('active');
-    } else if (cardPaid === false) {
-      modalBuy.classList.add('active');
-    } else {
-      e.target.textContent = 'Own';
-      e.target.setAttribute('disabled', '');
-      booksOwn.push(ind);
-      const bookTitle = e.target.parentNode.querySelector('.book__title').textContent;
-      const li = document.createElement('li');
-      li.innerHTML = bookTitle.replace('By', ',');
-      booksList.append(li);
-      profileBooks.forEach((item) => (item.textContent = booksOwn.length));
-      localStorage.setItem('books', booksOwn);
-    }
-  })
-);
 // modal_buy
 const modalBuyForm = modalBuy.querySelector('form');
 modalBuyForm.addEventListener('submit', (e) => {
